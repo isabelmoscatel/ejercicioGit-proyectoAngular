@@ -1,0 +1,76 @@
+<div class="card">
+  <div class="card-header">
+    <div class="row d-flex align-items-center">
+      <div class="col">
+        Lista de vehículos
+      </div>
+      <div class="col d-flex justify-content-end">
+        <a [routerLink]="['/registro']" class="btn btn-info">Agregar nuevo vehículo</a>
+      </div>
+    </div>
+
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Filtro</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Marca" [(ngModel)]="filtro"
+          (blur)="consultaVehiculos()">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        Filtrado por: {{filtro}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>
+                <button class="btn btn-success"
+                  [ngClass]="{'btn-success': !mostrarImagen, 'btn-warning': mostrarImagen}"
+                  [innerText]="mostrarImagen? 'Ocultar imagen':' Mostrar imagen'" (click)="mostrar()">Mostrar
+                  imágen</button>
+              </th>
+              <th>Código</th>
+              <th>Marca</th>
+              <th>Modelo</th>
+              <th>Año</th>
+              <th>Color</th>
+              <th>Kilometraje</th>
+              <th>Precio</th>
+              <th>Calificación</th>
+              <th>OP</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let item of listaVehiculos">
+              <td><img [src]="item.foto " style="width: 50px;" alt="" *ngIf="this.mostrarImagen"></td>
+              <td><a [routerLink]="['/vehiculo/'+item.codigo]">{{item.codigo}}</a></td>
+              <td>{{item.marca}}</td>
+              <td>{{item.modelo}}</td>
+              <td [innerText]="item.anio"></td>
+              <td>{{item.color}}</td>
+              <td>{{item.kilometraje}}</td>
+              <td>{{item.precio | currency}}</td>
+              <td>
+                <app-calificacion [calificacion]="item.calificacion" (accion)="(recepcion($event))"></app-calificacion>
+              </td>
+              <td>
+                <a class="btn btn-light" [routerLink]="['/editarvehiculo/'+item.codigo]"><i
+                    class="fa-solid fa-pencil"></i> </a>
+                <button type="button" class="btn btn-light" (click)="eliminar(item.codigo)">
+                  <i class="fa-solid fa-trash" style="color: red;"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>

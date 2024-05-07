@@ -1,0 +1,70 @@
+<div class="card" style="margin-left: 20%; margin-right:20% ">
+  <div class="card-header">
+    Registro
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <form [formGroup]="formulario">
+        <div class="mb-3 row">
+          <label for="staticCodigo" class="col-sm-2 col-form-label">Codigo</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control"  name="codigo" formControlName="codigo">
+            <span class="text-danger" *ngIf="formulario.controls['codigo'].errors?.['required']"><small>Valor Requerido</small></span>
+            <br>
+            <span class="text-danger" *ngIf="formulario.controls['codigo'].errors?.['codigoValidate']"><small>Formato no valido</small></span>
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="staticCodigo" class="col-sm-2 col-form-label">Marca</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="marca" formControlName="marca" >
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="staticCodigo" class="col-sm-2 col-form-label">Modelo</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="modelo" formControlName="modelo" >
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="staticCodigo" class="col-sm-2 col-form-label">Color</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control"  name="color" formControlName="color" >
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="staticCodigo" class="col-sm-2 col-form-label">Año</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control"  name="anio" formControlName="anio" >
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="staticCodigo" class="col-sm-2 col-form-label">Kilometraje</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="kilometraje" formControlName="kilometraje">
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="staticCodigo" class="col-sm-2 col-form-label">Calificación</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control"  name="calificacion" formControlName="calificacion">
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="staticCodigo" class="col-sm-2 col-form-label">Precio</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control"  name="precio" formControlName="precio">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col align-items-center">
+            <button type="button" class="btn btn-outline-primary" (click)="guardar()"> Agregar</button>
+
+          </div>
+
+
+        </div>
+      </form>
+    </div>
+  </div>

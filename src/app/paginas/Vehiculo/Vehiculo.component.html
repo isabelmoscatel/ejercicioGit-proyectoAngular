@@ -1,0 +1,100 @@
+<div class="card">
+  <div class="card-header">
+   <h4>Vehiculo {{vehiculo?.marca}} {{vehiculo?.modelo}}</h4> 
+  </div>
+  <div class="card-body">
+    <div class="container">
+      <div class="row align-items-center detalleVehiculo ">
+        <div class="col">
+          <div class="row align-items-start">
+            <div class="col">
+              <b>Codigo:</b>
+            </div>
+            <div class="col">
+             {{vehiculo?.codigo}}
+            </div>
+          </div>
+          <div class="row align-items-start">
+            <div class="col">
+              <b>Marca:</b>
+            </div>
+            <div class="col">
+              {{vehiculo?.marca}}
+            </div>
+          </div>
+          <div class="row align-items-start">
+            <div class="col">
+              <b>Modelo:</b>
+            </div>
+            <div class="col">
+              {{vehiculo?.modelo}}
+            </div>
+          </div>
+          <div class="row align-items-start">
+            <div class="col">
+              <b>Año</b>
+            </div>
+            <div class="col">
+              {{vehiculo?.anio}}
+            </div>
+          </div>
+          <div class="row align-items-start">
+            <div class="col">
+              <b>Color</b>
+            </div>
+            <div class="col">
+              {{vehiculo?.color}}
+            </div>
+          </div>
+          <div class="row align-items-start">
+            <div class="col">
+              <b>Kilómetros</b>
+            </div>
+            <div class="col">
+              {{vehiculo?.kilometraje}}
+            </div>
+          </div>
+          <div class="row align-items-start">
+            <div class="col">
+              <b>Precio</b>
+            </div>
+            <div class="col">
+              {{vehiculo?.precio}}
+            </div>
+          </div>
+          <div class="row align-items-start">
+            <div class="col">
+              <b>Calificación</b>
+            </div>
+            <div class="col">
+              <app-calificacion [calificacion]="vehiculo?.calificacion"></app-calificacion>
+            </div>
+          </div>
+          <br>
+          <div class="row align-items-start">
+            <div class="col">
+              
+            </div>
+            <div class="col">
+              <button type="button" class="btn btn-outline-primary"> <i class="fa-solid fa-cart-shopping"></i>Comprar</button>
+
+            </div>
+            <div class="col">
+              <a class="btn btn-outline-primary" [routerLink]="['/editarvehiculo/'+vehiculo?.codigo]">Editar Vehiculo</a>
+
+            </div>
+          </div>
+          
+
+        </div>
+        <div class="col">
+          {{vehiculo?.foto}} 
+          <img src="{{vehiculo?.foto}} " alt="" height="300px">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer align-items-center ">
+    <button type="button" class="btn btn-light"><i class="fa-solid fa-arrow-left"></i> Regresar</button>
+  </div>
+</div>
